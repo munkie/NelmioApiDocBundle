@@ -85,4 +85,41 @@ class DumpCommandTest extends CommandTestCase
             ),
         );
     }
+
+    public function testMarkdownFormat()
+    {
+        $input = array(
+            'command' => 'api:doc:dump',
+            '--format' => 'markdown',
+        );
+        $this->tester->run($input);
+
+        $display = $this->tester->getDisplay();
+
+        $expectedStart = <<<EOM
+# Popo #
+
+### `GET` /popos ###
+EOM;
+
+        $this->assertStringStartsWith($expectedStart, $display);
+    }
+
+    public function testHtmlFormat()
+    {
+        $input = array(
+            'command' => 'api:doc:dump',
+            '--format' => 'html',
+        );
+        $this->tester->run($input);
+
+        $display = $this->tester->getDisplay();
+
+        $expectedStart = <<<EOM
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+EOM;
+
+        $this->assertStringStartsWith($expectedStart, $display);
+    }
 }
