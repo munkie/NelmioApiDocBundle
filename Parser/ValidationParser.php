@@ -176,8 +176,10 @@ class ValidationParser implements ParserInterface, PostParserInterface
      *  - Regex (match and non-match)
      *
      * @param  Constraint $constraint The constraint metadata object.
-     * @param  array      $vparams    The existing validation parameters.
-     * @return mixed      The parsed list of validation parameters.
+     * @param  array  $vparams The existing validation parameters.
+     * @param  string $className
+     * @param  array  $visited
+     * @return mixed The parsed list of validation parameters.
      */
     protected function parseConstraint(Constraint $constraint, $vparams, $className, &$visited = array())
     {

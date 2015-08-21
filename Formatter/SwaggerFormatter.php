@@ -14,7 +14,6 @@ namespace Nelmio\ApiDocBundle\Formatter;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Swagger\ModelRegistry;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Produces Swagger-compliant resource lists and API declarations as defined here:

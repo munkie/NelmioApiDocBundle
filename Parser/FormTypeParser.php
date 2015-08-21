@@ -17,7 +17,6 @@ use Symfony\Component\Form\Exception\InvalidArgumentException;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface;
 use Symfony\Component\Form\Extension\Core\View\ChoiceView;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\ResolvedFormTypeInterface;

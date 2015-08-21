@@ -1,8 +1,7 @@
 <?php
-namespace NelmioApiDocBundle\Tests\Parser;
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\DataTypes;
-use Nelmio\ApiDocBundle\Tests\Fixtures\Model\JmsNested;
 use Nelmio\ApiDocBundle\Parser\JmsMetadataParser;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;

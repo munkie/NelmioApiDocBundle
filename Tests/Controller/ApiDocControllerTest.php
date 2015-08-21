@@ -6,7 +6,8 @@
  * Time: 4:35 PM
  */
 
-namespace NelmioApiDocBundle\Tests\Controller;
+namespace Nelmio\ApiDocBundle\Tests\Controller;
+
 use Nelmio\ApiDocBundle\Tests\WebTestCase;
 
 /**

@@ -30,7 +30,7 @@ interface PostParserInterface
      *  - children          (optional) array of nested property names mapped to arrays
      *                      in the format described here
      *
-     * @param  string $item       The string type of input to parse.
+     * @param  array  $item       The string type of input to parse.
      * @param  array  $parameters The previously-parsed parameters array.
      * @return array
      */

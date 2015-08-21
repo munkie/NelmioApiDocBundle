@@ -269,6 +269,7 @@ class JmsMetadataParser implements ParserInterface, PostParserInterface
      *
      * @param  array $parameters
      * @param  array $visited
+     * @param  array $groups
      * @return array
      */
     protected function doPostParse (array $parameters, array $visited = array(), array $groups = array())

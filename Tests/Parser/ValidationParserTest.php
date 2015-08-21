@@ -1,5 +1,6 @@
 <?php
-namespace NelmioApiDocBundle\Tests\Parser;
+
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Tests\WebTestCase;

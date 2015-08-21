@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NelmioApiDocBundle\Tests\Parser;
+namespace Nelmio\ApiDocBundle\Tests\Parser;
 
 use Nelmio\ApiDocBundle\DataTypes;
 use Nelmio\ApiDocBundle\Parser\DunglasApiParser;
