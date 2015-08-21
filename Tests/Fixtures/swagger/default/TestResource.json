@@ -1,0 +1,22 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/TestResource",
+  "apis": [
+    {
+      "path": "\/named-resource",
+      "operations": []
+    }
+  ],
+  "models": [],
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

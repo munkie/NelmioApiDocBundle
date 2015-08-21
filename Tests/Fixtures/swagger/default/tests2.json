@@ -1,0 +1,37 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/tests2",
+  "apis": [
+    {
+      "path": "\/tests2.{_format}",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "post test 2",
+          "nickname": "post_tests2",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    }
+  ],
+  "models": [],
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

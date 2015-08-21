@@ -1,0 +1,149 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/tests",
+  "apis": [
+    {
+      "path": "\/tests.{_format}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "index action",
+          "nickname": "get_tests",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "a",
+              "type": "integer",
+              "description": null
+            },
+            {
+              "paramType": "query",
+              "name": "b",
+              "type": "string",
+              "description": null
+            }
+          ],
+          "responseMessages": []
+        },
+        {
+          "method": "GET",
+          "summary": "index action",
+          "nickname": "get_tests",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "query",
+              "name": "a",
+              "type": "integer",
+              "description": null
+            },
+            {
+              "paramType": "query",
+              "name": "b",
+              "type": "string",
+              "description": null
+            }
+          ],
+          "responseMessages": []
+        },
+        {
+          "method": "POST",
+          "summary": "create test",
+          "nickname": "post_tests",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "a",
+              "type": "string",
+              "description": "A nice description"
+            },
+            {
+              "paramType": "form",
+              "name": "b",
+              "type": "string"
+            },
+            {
+              "paramType": "form",
+              "name": "c",
+              "type": "boolean",
+              "defaultValue": false
+            },
+            {
+              "paramType": "form",
+              "name": "d",
+              "type": "string",
+              "defaultValue": "DefaultTest"
+            }
+          ],
+          "responseMessages": []
+        },
+        {
+          "method": "POST",
+          "summary": "create test",
+          "nickname": "post_tests",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "a",
+              "type": "string",
+              "description": "A nice description"
+            },
+            {
+              "paramType": "form",
+              "name": "b",
+              "type": "string"
+            },
+            {
+              "paramType": "form",
+              "name": "c",
+              "type": "boolean",
+              "defaultValue": false
+            },
+            {
+              "paramType": "form",
+              "name": "d",
+              "type": "string",
+              "defaultValue": "DefaultTest"
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    }
+  ],
+  "models": [],
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

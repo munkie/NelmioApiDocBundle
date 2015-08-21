@@ -28,9 +28,14 @@ abstract class WebTestCase extends BaseWebTestCase
         }
     }
 
+    protected function getTmpDir()
+    {
+        return sys_get_temp_dir().'/'.Kernel::VERSION;
+    }
+
     protected function deleteTmpDir()
     {
-        if (!file_exists($dir = sys_get_temp_dir().'/'.Kernel::VERSION)) {
+        if (!file_exists($dir = $this->getTmpDir())) {
             return;
         }
 

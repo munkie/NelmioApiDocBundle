@@ -1,0 +1,145 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/other-resources",
+  "apis": [
+    {
+      "path": "\/other-resources.{_format}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "List another resource.",
+          "nickname": "get_other-resources",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "json",
+                "xml",
+                "html"
+              ]
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "See standard HTTP status code reason for 200",
+              "responseModel": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest[]"
+            }
+          ],
+          "type": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest[]"
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest": {
+      "id": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest",
+      "description": null,
+      "properties": {
+        "foo": {
+          "type": "string",
+          "description": "string"
+        },
+        "bar": {
+          "type": "string",
+          "description": "DateTime",
+          "format": "date-time"
+        },
+        "number": {
+          "type": "number",
+          "description": "double",
+          "format": "float"
+        },
+        "arr": {
+          "type": "array",
+          "description": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nested": {
+          "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsNested"
+        },
+        "nested_array": {
+          "type": "array",
+          "description": "array of objects (JmsNested)",
+          "items": {
+            "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsNested"
+          }
+        }
+      },
+      "required": []
+    },
+    "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsNested": {
+      "id": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsNested",
+      "description": "object (JmsNested)",
+      "properties": {
+        "foo": {
+          "type": "string",
+          "description": "DateTime",
+          "format": "date-time"
+        },
+        "bar": {
+          "type": "string",
+          "description": "string"
+        },
+        "baz": {
+          "type": "array",
+          "description": "Epic description.\n\nWith multiple lines.",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "circular": {
+          "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsNested"
+        },
+        "parent": {
+          "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest"
+        },
+        "since": {
+          "type": "string",
+          "description": "string"
+        },
+        "until": {
+          "type": "string",
+          "description": "string"
+        },
+        "since_and_until": {
+          "type": "string",
+          "description": "string"
+        }
+      },
+      "required": []
+    },
+    "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest[]": {
+      "id": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest[]",
+      "description": "",
+      "properties": {
+        "": {
+          "type": "array",
+          "description": null,
+          "items": {
+            "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.JmsTest"
+          }
+        }
+      },
+      "required": [
+        ""
+      ]
+    }
+  },
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

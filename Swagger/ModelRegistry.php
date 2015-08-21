@@ -37,7 +37,7 @@ class ModelRegistry
     /**
      * @var callable
      */
-    protected $namingStategy;
+    protected $namingStrategy;
 
     protected $typeMap = array(
         DataTypes::INTEGER => 'integer',
@@ -66,7 +66,7 @@ class ModelRegistry
             ));
         }
 
-        $this->namingStategy = array($this, $this->namingStrategies[$namingStrategy]);
+        $this->namingStrategy = array($this, $this->namingStrategies[$namingStrategy]);
     }
 
     public function register($className, array $parameters = null, $description = '')
@@ -75,7 +75,7 @@ class ModelRegistry
             $this->classes[$className] = array();
         }
 
-        $id = call_user_func_array($this->namingStategy, array($className));
+        $id = call_user_func_array($this->namingStrategy, array($className));
 
         if (isset($this->models[$id])) {
             return $id;
@@ -96,6 +96,11 @@ class ModelRegistry
             foreach ($parameters as $name => $prop) {
 
                 $subParam = array();
+
+                $prop += array(
+                    'actualType' => null,
+                    'description' => null,
+                );
 
                 if ($prop['actualType'] === DataTypes::MODEL) {
 

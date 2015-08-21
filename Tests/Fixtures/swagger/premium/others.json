@@ -1,0 +1,232 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/others",
+  "apis": [
+    {
+      "path": "\/popos",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retrieves the collection of Popo resources.",
+          "nickname": "get_others",
+          "parameters": [],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "See standard HTTP status code reason for 200",
+              "responseModel": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+            }
+          ],
+          "type": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+        },
+        {
+          "method": "POST",
+          "summary": "Creates a Popo resource.",
+          "nickname": "post_others",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "paramType": "form",
+              "name": "foo",
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "See standard HTTP status code reason for 200",
+              "responseModel": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+            }
+          ],
+          "type": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+        }
+      ]
+    },
+    {
+      "path": "\/popos\/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Retrieves Popo resource.",
+          "nickname": "get_others",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "See standard HTTP status code reason for 200",
+              "responseModel": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+            }
+          ],
+          "type": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+        },
+        {
+          "method": "PUT",
+          "summary": "Replaces the Popo resource.",
+          "nickname": "put_others",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "id",
+              "type": "string",
+              "description": ""
+            },
+            {
+              "paramType": "form",
+              "name": "foo",
+              "type": "string",
+              "description": ""
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "See standard HTTP status code reason for 200",
+              "responseModel": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+            }
+          ],
+          "type": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo"
+        },
+        {
+          "method": "DELETE",
+          "summary": "Deletes the Popo resource.",
+          "nickname": "delete_others",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    },
+    {
+      "path": "\/tests.{_format}",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "create test",
+          "nickname": "post_others",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "a",
+              "type": "string",
+              "description": "A nice description"
+            },
+            {
+              "paramType": "form",
+              "name": "b",
+              "type": "string"
+            },
+            {
+              "paramType": "form",
+              "name": "c",
+              "type": "boolean",
+              "defaultValue": false
+            },
+            {
+              "paramType": "form",
+              "name": "d",
+              "type": "string",
+              "defaultValue": "DefaultTest"
+            }
+          ],
+          "responseMessages": []
+        },
+        {
+          "method": "POST",
+          "summary": "create test",
+          "nickname": "post_others",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "a",
+              "type": "string",
+              "description": "A nice description"
+            },
+            {
+              "paramType": "form",
+              "name": "b",
+              "type": "string"
+            },
+            {
+              "paramType": "form",
+              "name": "c",
+              "type": "boolean",
+              "defaultValue": false
+            },
+            {
+              "paramType": "form",
+              "name": "d",
+              "type": "string",
+              "defaultValue": "DefaultTest"
+            }
+          ],
+          "responseMessages": []
+        }
+      ]
+    }
+  ],
+  "models": {
+    "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo": {
+      "id": "dunglas.api.out.Nelmio.ApiDocBundle.Tests.Fixtures.Model.Popo",
+      "description": "",
+      "properties": {
+        "id": {
+          "type": null,
+          "description": "integer"
+        },
+        "foo": {
+          "type": null,
+          "description": "string"
+        }
+      },
+      "required": []
+    }
+  },
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

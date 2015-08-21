@@ -1,0 +1,65 @@
+{
+  "swaggerVersion": "1.2",
+  "apis": [
+    {
+      "path": "\/other-resources",
+      "description": "Operations on another resource."
+    },
+    {
+      "path": "\/resources",
+      "description": "Operations on resource."
+    },
+    {
+      "path": "\/tests",
+      "description": null
+    },
+    {
+      "path": "\/tests",
+      "description": null
+    },
+    {
+      "path": "\/tests2",
+      "description": null
+    },
+    {
+      "path": "\/TestResource",
+      "description": null
+    },
+    {
+      "path": "\/others",
+      "description": "Popo"
+    },
+    {
+      "path": "\/others",
+      "description": "Popo"
+    },
+    {
+      "path": "\/others",
+      "description": "Popo"
+    },
+    {
+      "path": "\/others",
+      "description": "Popo"
+    },
+    {
+      "path": "\/others",
+      "description": "Popo"
+    }
+  ],
+  "apiVersion": "3.14",
+  "info": {
+    "title": "Nelmio Swagger",
+    "description": "Testing Swagger integration.",
+    "TermsOfServiceUrl": "https:\/\/github.com",
+    "contact": "user@domain.tld",
+    "license": "MIT",
+    "licenseUrl": "http:\/\/opensource.org\/licenses\/MIT"
+  },
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}

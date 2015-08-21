@@ -1,13 +1,10 @@
 <?php
 
-namespace NelmioApiDocBundle\Tests\Command;
+namespace Nelmio\ApiDocBundle\Tests\Command;
 
-use Nelmio\ApiDocBundle\Tests\WebTestCase;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Component\Console\Tester\ApplicationTester;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
-class DumpCommandTest extends WebTestCase
+class DumpCommandTest extends CommandTestCase
 {
     /**
      * @dataProvider viewProvider
@@ -18,22 +15,14 @@ class DumpCommandTest extends WebTestCase
      */
     public function testDumpWithViewOption($view, array $expectedMethodsCount, array $expectedMethodValues)
     {
-        $this->getContainer();
-
-        $application = new Application(static::$kernel);
-        $application->setCatchExceptions(false);
-        $application->setAutoExit(false);
-
-        $tester = new ApplicationTester($application);
-
         $input = array(
             'command' => 'api:doc:dump',
             '--view' => $view,
             '--format' => 'json',
         );
-        $tester->run($input);
+        $this->tester->run($input);
 
-        $display = $tester->getDisplay();
+        $display = $this->tester->getDisplay();
 
         $this->assertJson($display);
 

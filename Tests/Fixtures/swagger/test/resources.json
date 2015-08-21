@@ -1,0 +1,88 @@
+{
+  "swaggerVersion": "1.2",
+  "apiVersion": "3.14",
+  "basePath": "\/api",
+  "resourcePath": "\/resources",
+  "apis": [
+    {
+      "path": "\/resources.{_format}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "List resources.",
+          "nickname": "get_resources",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "_format",
+              "type": "string",
+              "required": true,
+              "enum": [
+                "json",
+                "xml",
+                "html"
+              ]
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "message": "Returned on success.",
+              "responseModel": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test[tests]"
+            },
+            {
+              "code": 404,
+              "message": "Returned if resource cannot be found."
+            }
+          ],
+          "type": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test[tests]"
+        }
+      ]
+    }
+  ],
+  "models": {
+    "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test": {
+      "id": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test",
+      "description": null,
+      "properties": {
+        "a": {
+          "type": "string",
+          "description": "string"
+        },
+        "b": {
+          "type": "string",
+          "description": "DateTime",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "a"
+      ]
+    },
+    "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test[tests]": {
+      "id": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test[tests]",
+      "description": "",
+      "properties": {
+        "tests": {
+          "type": "array",
+          "description": null,
+          "items": {
+            "$ref": "Nelmio.ApiDocBundle.Tests.Fixtures.Model.Test"
+          }
+        }
+      },
+      "required": [
+        "tests"
+      ]
+    }
+  },
+  "produces": [],
+  "consumes": [],
+  "authorizations": {
+    "apiKey": {
+      "type": "apiKey",
+      "passAs": "header",
+      "keyname": "access_token"
+    }
+  }
+}
