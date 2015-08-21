@@ -12,8 +12,9 @@
 namespace Nelmio\ApiDocBundle\Command;
 
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use Nelmio\ApiDocBundle\Extractor\ApiDocExtractor;
 use Nelmio\ApiDocBundle\Formatter\SwaggerFormatter;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -26,46 +27,62 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @author Bez Hermoso <bez@activelamp.com>
  */
-class SwaggerDumpCommand extends ContainerAwareCommand
+class SwaggerDumpCommand extends Command
 {
     /**
-     * @var Filesystem
+     * @var ApiDocExtractor
      */
-    protected $filesystem;
+    protected $extractor;
 
     /**
      * @var SwaggerFormatter
      */
     protected $formatter;
 
+    /**
+     * @var Filesystem
+     */
+    protected $filesystem;
+
+    /**
+     * @param ApiDocExtractor $extractor
+     * @param SwaggerFormatter $formatter
+     * @param Filesystem $filesystem
+     */
+    public function __construct(
+        ApiDocExtractor $extractor,
+        SwaggerFormatter $formatter,
+        Filesystem $filesystem
+    ) {
+        parent::__construct();
+
+        $this->extractor = $extractor;
+        $this->formatter = $formatter;
+        $this->filesystem = $filesystem;
+    }
+
     protected function configure()
     {
-        $this->filesystem = new Filesystem();
-
         $this
+            ->setName('api:swagger:dump')
             ->setDescription('Dumps Swagger-compliant API definitions.')
             ->addOption('resource', 'r', InputOption::VALUE_OPTIONAL, 'A specific resource API declaration to dump.')
             ->addOption('list-only', 'l', InputOption::VALUE_NONE, 'Dump resource list only.')
             ->addOption('pretty', 'p', InputOption::VALUE_NONE, 'Dump as prettified JSON.')
             ->addOption('view', null, InputOption::VALUE_OPTIONAL, 'Dump specified view', ApiDoc::DEFAULT_VIEW)
-            ->addArgument('destination', InputArgument::OPTIONAL, 'Directory to dump JSON files in.', null)
-            ->setName('api:swagger:dump');
+            ->addArgument('destination', InputArgument::OPTIONAL, 'Directory to dump JSON files in.')
+            ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $container = $this->getContainer();
-
-        $extractor = $container->get('nelmio_api_doc.extractor.api_doc_extractor');
-        $this->formatter = $container->get('nelmio_api_doc.formatter.swagger_formatter');
-
         if ($input->getOption('list-only') && $input->getOption('resource')) {
             throw new \RuntimeException('Cannot selectively dump a resource with the --list-only flag.');
         }
 
         $view = $input->getOption('view');
 
-        $apiDocs = $extractor->all($view);
+        $apiDocs = $this->extractor->all($view);
 
         if ($input->getOption('list-only')) {
             $data = $this->getResourceList($apiDocs);

@@ -46,6 +46,7 @@ class NelmioApiDocExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('formatters.xml');
         $loader->load('services.xml');
+        $loader->load('services.command.xml');
 
         if ($config['request_listener']['enabled']) {
             $container->setParameter('nelmio_api_doc.request_listener.parameter', $config['request_listener']['parameter']);
